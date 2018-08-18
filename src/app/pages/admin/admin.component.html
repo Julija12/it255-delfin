@@ -1,0 +1,110 @@
+<div class="admin">
+  <div class="alert alert-info" style="display:inline-block" >
+
+    <h2>ADMIN </h2>
+    <hr>
+  </div>
+
+  <form role="form" [formGroup]="addProductForm" (ngSubmit)="addProduct(addProductForm.value)">
+    <div class="form-group">
+
+      <label for="ime">Ime:</label>
+      <input id="ime" type="text" class="form-control" formControlName='ime'>
+      <label for="katID">Kategorija:</label>
+      <select id="katID" type="text" class="form-control" formControlName='katID'>
+        <option value="1">Kafa </option>
+        <option value="2">Brašno</option>
+
+      </select>
+      <label for="cena">Cena:</label>
+      <input id="cena" type="text" class="form-control" formControlName='cena'>
+      <label for="url">URL:</label>
+      <input id="url" type="text" class="form-control" formControlName='url'>
+
+
+
+    </div>
+
+    <button type="submit" class="btn btn-info" >Dodaj proizvod</button>
+  </form>
+  <br/>
+  <br/>
+
+</div>
+
+<div class="col-lg-12" style=" display: inline-block;">
+
+  <table class="display1" cellspacing="10" style="float:right; color:#c17f0a;"   >
+
+    <thead>
+      <h3>Proizvodi: <br></h3>
+      <hr>
+      
+      <br>
+      <tr>
+
+        <th>ID: </th>
+        <th>Ime: </th>
+        <th>Kategorija: </th>
+        <th>Cena: </th>
+        <th>Ukloni: </th>
+
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let proizvod of proizvodi">
+        <td>{{proizvod.id}}</td>
+        <td>{{proizvod.ime}}</td>
+        <td>{{proizvod.katID}}</td>
+        <td>{{proizvod.cena}}</td>
+        <td>
+          <button type="button" class="btn btn-danger" (click)="remove(proizvod.id)">
+            <span class="glyphicon glyphicon-remove"> Ukloni</span>
+          </button>
+        </td>
+
+      </tr>
+    </tbody>
+  </table>
+
+  <table class="display2" cellspacing="10" style="float:left ;color:#c17f0a; ">
+
+    <thead>
+      <br>
+      <h3><br>Sve narudžbine:</h3>
+      <hr>
+     
+      <br>
+      <tr>
+
+        <th>ID: </th>
+        <th>ID Korpe: </th>
+        <th>ID Proizvoda: </th>
+        <th>Kolicina: </th>
+
+
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let narudzbina of narudzbine; let i=index">
+        <td>{{narudzbina.id}}</td>
+        <td>{{narudzbina.korpa_id}}</td>
+        <td>{{narudzbina.idProizvoda}}</td>
+        <td>{{narudzbina.kolicina}}</td>
+
+        <td>
+          <button type="button" class="btn btn-danger" (click)="remove(narudzbina.id, i)">
+            <span class="glyphicon glyphicon-remove"> Ukloni</span>
+          </button>
+        </td>
+
+      </tr>
+
+    </tbody>
+  </table>
+
+</div>
+<br><br>
+<br>

@@ -1,21 +1,173 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<header>
+  <nav class="navbar navbar-expand-lg navbar-light ">
+    <img src="../assets/dolphin.png" alt="logo">
+    <h1>Delfin</h1>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+      aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav ml-auto mt-2 mt-lg-0  ">
+        <li class="nav-item active" routerLink="/" [routerLinkActiveOptions]="{exact: true}" routerLinkActive="active">
+          <a class="navbar-brand" routerLink="/">Početna</a>
+        </li>
+        <li class="nav-item" routerLink="/about" routerLinkActive="active">
+          <a class="navbar-brand" routerLink="/about">O nama</a>
+        </li>
+        <li class="nav-item" routerLink="/contact" routerLinkActive="active">
+          <a class="navbar-brand" routerLink="/contact">Kontakt</a>
+
+          <li class="nav-item" routerLink="/proizvodi" routerLinkActive="active">
+            <a class="navbar-brand" routerLink="/proizvodi">Proizvodi</a>
+          </li>
+          <li class="nav-item" *ngIf="!isAuth" routerLink="/login" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="active">
+            <a class="navbar-brand" [routerLink]="['/login']" style="color:#c17f0a">Uloguj se</a>
+          </li>
+
+          <ng-container *ngIf="isAuth">
+            <ng-container *ngIf="user">
+              <li class="nav-item" *ngIf=" user.role_id == 1" routerLink="/admin" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="active">
+                <a class="nav-brand" [routerLink]="['/admin']">Admin</a>
+              </li>
+            </ng-container>
+          </ng-container>
+          <ng-container *ngIf="isAuth">
+            <ng-container *ngIf="user">
+              <li class="nav-item" *ngIf="user.role_id == 0" routerLink="/korpa" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="active">
+                <a class="nav-brand" [routerLink]="['/korpa']">Korpa</a>
+              </li>
+            </ng-container>
+          </ng-container>
+          <li class="nav-item" *ngIf="isAuth" routerLink="/" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="active">
+            <a class="navbar-brand" [routerLink]="['/']" (click)="onLogout()" style="color:#c17f0a">Odjavi se</a>
+          </li>
+      </ul>
+    </div>
+  </nav>
+
+</header>
+
 
 <router-outlet></router-outlet>
+
+
+
+<footer class="page-footer font-small mdb-color lighten-3 pt-4">
+
+  <div class="container text-center text-md-left">
+
+
+    <div class="row">
+
+
+      <div class="col-md-4 col-lg-3 mr-auto my-md-4 my-0 mt-4 mb-1">
+
+
+        <h5 class="font-weight-bold text-uppercase mb-4">FIRMA DELFIN</h5>
+        <p>Za sva dodatna pitanja i više informacija možete nas kontaktirati.</p>
+        <p>Tu smo da odgovorimo na sve vaše predloge i zahteve.</p>
+
+      </div>
+
+
+      <hr class="clearfix w-100 d-md-none">
+
+      <div class="col-md-2 col-lg-2 mx-auto my-md-4 my-0 mt-4 mb-1" id="col2">
+
+
+        <h5 class="font-weight-bold text-uppercase mb-4">O nama</h5>
+
+        <ul class="list-unstyled">
+          <li>
+            <p>
+              <li class="nav-item" routerLink="/about" routerLinkActive="active">
+                <a class="nav" routerLink="/about">RECEPTI</a>
+            </p>
+            </li>
+            <li>
+              <p>
+                <li class="nav-item" routerLink="/about" routerLinkActive="active">
+                  <a class="nav" routerLink="/about">O NAMA</a>
+              </p>
+              </li>
+              <li>
+                <p>
+                  <li class="nav-item" routerLink="/proizvodi" routerLinkActive="active">
+                    <a class="nav" routerLink="/about">PROIZVODI</a>
+                </p>
+                </li>
+        </ul>
+
+      </div>
+
+
+      <hr class="clearfix w-100 d-md-none">
+
+
+      <div class="col-md-4 col-lg-3 mx-auto my-md-4 my-0 mt-4 mb-1" id="col3">
+
+
+        <h5 class="font-weight-bold text-uppercase mb-4">Adresa</h5>
+
+        <ul class="list-unstyled">
+          <li>
+            <p>
+              <i class="fa fa-home mr-6"></i> Prote Ilije Purića 11,
+              <br>31320 Nova Varoš,
+              <br>Srbija</p>
+          </li>
+          <li>
+            <p>
+              <i class="fa fa-envelope mr-6"></i> delfin.nova.varos@gmail.com</p>
+          </li>
+          <li>
+            <p>
+              <i class="fa fa-phone mr-6"></i> + 033 62 440, +381 60 56 99 999</p>
+          </li>
+          <li>
+            <p>
+              <i class="fa fa-print mr-6"></i> + 033 62 440 </p>
+          </li>
+        </ul>
+
+      </div>
+
+
+      <hr class="clearfix w-100 d-md-none">
+
+
+      <div class="col-md-2 col-lg-2 text-center mx-auto my-4" id="col4">
+
+
+        <h5 class="font-weight-bold text-uppercase mb-4">PRATITE NAS</h5>
+
+
+        <ul class="list-unstyled">
+          <p>
+            <a href="https://www.facebook.com/Delfin-Nova-Varo%C5%A1-124539867648330/">FACEBOOK</a>
+          </p>
+          <p>
+            <a href="https://www.instagram.com/">INSTAGRAM</a>
+          </p>
+          <p>
+            <a href="https://www.twitter.com">TWITTER</a>
+          </p>
+
+        </ul>
+      </div>
+      <!-- Social buttons -->
+
+
+    </div>
+
+  </div>
+
+
+
+  <div class="footer-copyright text-center py-3">© 2018 Copyright:
+  </div>
+
+
+</footer>

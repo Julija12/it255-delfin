@@ -1,0 +1,45 @@
+<div class="pozadina">
+  <div class="row panel">
+    <div class="col-3"></div>
+    <div class="col-6 forma">
+      <div class="panel text-center">
+        <h2>ULOGUJ SE</h2>
+        <p style="color: red">Molim Vas upišite Vašu email adresu i lozinku.</p>
+        <hr>
+      </div>
+      <form role="form" [formGroup]="loginForm" (ngSubmit)="login(loginForm.value)">
+        <div class="form-group">
+          <label for="email">E-mail:</label>
+          <input id="email" type="email" class="form-control" formControlName="email">
+        </div>
+        <div class="form-group ">
+          <label for="password">Lozinka:</label>
+          <input id="password" type="password" class="form-control" formControlName="password">
+        </div>
+        <div class="row">
+          <div class="col-6 text-left">
+            <a href="#">
+              <span style="color:#c17f0a">Zaboravili ste lozinku?</span>
+            </a>
+          </div>
+          <div class="col-6 text-right">
+            <button type="submit" class="btn btn-outline-dark">Uloguj se</button>
+          </div>
+        </div>
+      </form>
+      <hr>
+      <div class="row">
+        <div class="col-12">
+          <p>Još uvek niste registrovani?
+            <a routerLink="/register">
+              <span style="color:#c17f0a"> Registruj se ovde</span>
+            </a>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-3"></div>
+
+  </div>
+
+</div>

@@ -1,0 +1,49 @@
+<div class="main">
+  <div class="top">
+
+    <div class="centered">PROIZVODI</div>
+  </div>
+
+
+  <div class="screen">
+
+
+    <div class="container ">
+      <div class="row text-center">
+        <div class="col-4 shoe" *ngFor=" let proizvod of products">
+
+
+
+          <img src="{{proizvod.url}}" class="img-thumbnail" alt="proizvod">
+          <br>
+
+          <h4 *ngIf="proizvod.katID == 1">
+            Kafa {{proizvod.ime}}
+          </h4>
+
+          <h4 *ngIf="proizvod.katID == 2">
+            Brašno {{proizvod.ime}}
+          </h4>
+
+          <hr>
+          <div class="row">
+            <div class="col-6 text-left">
+              <p class="text-justify ">
+                {{proizvod.cena}} Din
+              </p>
+            </div>
+            <ng-container>
+              <div class="col-6 text-right ">
+                <button class="btn btn-outline-danger" (click)="viewProduct(proizvod.id)">Pogledaj proizvod</button>
+              </div>
+            </ng-container>
+
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>

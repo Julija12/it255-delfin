@@ -1,0 +1,80 @@
+
+<script src="../../services/prodavnice.service.ts"></script>
+
+<section>
+   
+
+    <div class="row kontakt">
+        <div class="col-md-6 col-md-offset-3">
+            <h1>Kontaktiraj nas</h1>
+            <p>
+                Piši nam i mi ćemo odgovoriti u što bržem roku!
+            </p>
+            <form role="form" method="post" id="reused_form">
+                <div class="row">
+                    <div class="col-sm-6 form-group">
+                        <label for="name">
+                            Ime:</label>
+                        <input type="text" class="form-control" id="firstname" name="firstname"  maxlength="50">
+                    </div>
+                    <div class="col-sm-6 form-group">
+                        <label for="name">
+                            Prezime:</label>
+                        <input type="text" class="form-control" id="lastname" name="lastname"  maxlength="50">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6 form-group">
+                        <label for="email">
+                            Email:</label>
+                        <input type="text" class="form-control" id="email" name="email"
+                        maxlength="50">
+                    </div>
+                    <div class="col-sm-6 form-group">
+                        <label for="email">
+                            Telefon:</label>
+                        <input type="tel" class="form-control" id="phone" name="phone" required
+                        maxlength="50">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12 form-group">
+                        <label for="name">
+                            Poruka:</label>
+                        <textarea class="form-control" type="textarea" id="message" name="message" placeholder="Vaša poruka" maxlength="6000" rows="7"></textarea>
+                    </div>
+                </div>
+                            <div class="row">
+                    <div class="col-sm-4 form-group">
+                        <button type="submit" class="btn btn-lg btn-info btn-block" id="btnContactUs">Pošalji → </button>
+                    </div>
+                </div>
+    
+            </form>
+            <div id="success_message" style="width:100%; height:100%; display:none; ">
+                <h3>Sent your message successfully!</h3>
+            </div>
+            <div id="error_message"
+                    style="width:100%; height:100%; display:none; ">
+                        <h3>Error</h3>
+                        Sorry there was an error sending your form.
+    
+            </div>
+        </div>
+    </div>
+    <br><br><br>
+     <!-- Project One -->
+     <div class="lokacija">
+     <h2 style="color: black;">LOKACIJA: </h2><br>
+     <div class="col-md-14">
+         <ng-container>
+             <iframe width="100%" height="500px" frameborder="0" style="border:8px" scrolling="no" marginheight="0" marginwidth="0" allowfullscreen src="https://www.google.com/maps/d/embed?mid=1F-XDtY3x6XSTtfL61Jqsa0NLRrkzeCrN">
+ 
+   </iframe>
+         </ng-container>
+
+     </div>
+    </div>
+    </section>
+
+        
